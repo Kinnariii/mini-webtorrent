@@ -39,7 +39,6 @@ def handle_peer_request(client_socket, addr, file_path, piece_size, file_size):
         if message.startswith("GET_PIECE:"):
             piece_index = int(message.split(":")[1])
 
-            # ✅ FIX: compute the real size of this piece (last piece may be smaller)
             offset = piece_index * piece_size
             actual_piece_size = min(piece_size, file_size - offset)
 

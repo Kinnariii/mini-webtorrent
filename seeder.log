@@ -1,0 +1,528 @@
++-----------------------------------------------+
+| mini-webtorrent  |  port 6677  |  mode SEEDER |
++-----------------------------------------------+
+[20:30:09] [Uploader] Listening on port 6677                         peer.py:69
+
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 173, in run_downloader
+    console.print("\n[bold green]\u2714 All pieces downloaded! Now seeding.[/bold green]")
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 284, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 280, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 142, in run_downloader
+    with Progress(
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1190, in __exit__
+    self.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1176, in stop
+    self.live.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\live.py", line 162, in stop
+    with self.console:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
++-----------------------------------------------+
+| mini-webtorrent  |  port 6305  |  mode SEEDER |
++-----------------------------------------------+
+[20:36:19] [Uploader] Listening on port 6305                         peer.py:69
+
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 173, in run_downloader
+    console.print("\n[bold green]\u2714 All pieces downloaded! Now seeding.[/bold green]")
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 284, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 280, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 142, in run_downloader
+    with Progress(
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1190, in __exit__
+    self.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1176, in stop
+    self.live.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\live.py", line 162, in stop
+    with self.console:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
++-----------------------------------------------+
+| mini-webtorrent  |  port 6607  |  mode SEEDER |
++-----------------------------------------------+
+[20:39:09] [Uploader] Listening on port 6607                         peer.py:69
+
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 173, in run_downloader
+    console.print("\n[bold green]\u2714 All pieces downloaded! Now seeding.[/bold green]")
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 284, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 280, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 142, in run_downloader
+    with Progress(
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1190, in __exit__
+    self.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1176, in stop
+    self.live.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\live.py", line 162, in stop
+    with self.console:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
++-----------------------------------------------+
+| mini-webtorrent  |  port 6354  |  mode SEEDER |
++-----------------------------------------------+
+[20:44:48] [Uploader] Listening on port 6354                         peer.py:69
+
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 173, in run_downloader
+    console.print("\n[bold green]\u2714 All pieces downloaded! Now seeding.[/bold green]")
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 1704, in print
+    with self:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 284, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 280, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 142, in run_downloader
+    with Progress(
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1190, in __exit__
+    self.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\progress.py", line 1176, in stop
+    self.live.stop()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\live.py", line 162, in stop
+    with self.console:
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 864, in __exit__
+    self._exit_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 820, in _exit_buffer
+    self._check_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2055, in _check_buffer
+    self._write_buffer()
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\console.py", line 2091, in _write_buffer
+    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_windows_renderer.py", line 17, in legacy_windows_render
+    term.write_styled(text, style)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 441, in write_styled
+    self.write_text(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\site-packages\rich\_win32_console.py", line 402, in write_text
+    self.write(text)
+  File "C:\Users\Aditi Jain\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2714' in position 0: character maps to <undefined>
+┌───────────────────────────────────────────────┐
+│ mini-webtorrent  |  port 6146  |  mode SEEDER │
+└───────────────────────────────────────────────┘
+[20:48:25] [Uploader] Listening on port 6146                         peer.py:69
+
+✔ All pieces downloaded! Now seeding.
+           [Tracker] Re-announced as seeder                         peer.py:181
+[20:48:29] [Uploader] Served piece 0 (222228 B) to 127.0.0.1         peer.py:56
+
+✔ All pieces downloaded! Now seeding.
+[20:48:55] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:49:25] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:49:55] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:50:25] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:50:55] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:51:25] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:51:55] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:52:26] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:52:56] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:53:26] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:53:56] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:54:26] [Tracker] Re-announced as seeder                         peer.py:181
+
+✔ All pieces downloaded! Now seeding.
+[20:54:56] [Tracker] Re-announced as seeder                         peer.py:181
+Downloading ---------------------------------------- 100.0% (1/1 pieces)
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 284, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 280, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 184, in run_downloader
+    time.sleep(30)   # announce every 30s (well within the 90s TTL)
+    ^^^^^^^^^^^^^^
+KeyboardInterrupt
+┌───────────────────────────────────────────────┐
+│ mini-webtorrent  |  port 6653  |  mode SEEDER │
+└───────────────────────────────────────────────┘
+[21:07:37] Generating self-signed TLS certificates...                peer.py:69
+
+✔ All pieces downloaded! Now seeding.
+           [Tracker] Re-announced as seeder                         peer.py:202
+           [Uploader] Listening on port 6653 (TLS Enabled)           peer.py:85
+
+✔ All pieces downloaded! Now seeding.
+[21:08:07] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:08:37] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:09:07] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:09:37] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:10:07] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:10:37] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:11:07] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:11:37] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:12:07] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:12:37] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:13:07] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:13:38] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:14:08] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:14:38] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:15:08] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:15:38] [Tracker] Re-announced as seeder                         peer.py:202
+
+✔ All pieces downloaded! Now seeding.
+[21:16:08] [Tracker] Re-announced as seeder                         peer.py:202
+Downloading ---------------------------------------- 100.0% (1/1 pieces)
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 323, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 319, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 205, in run_downloader
+    time.sleep(30)   # announce every 30s (well within the 90s TTL)
+    ^^^^^^^^^^^^^^
+KeyboardInterrupt
+┌───────────────────────────────────────────────┐
+│ mini-webtorrent  |  port 6790  |  mode SEEDER │
+└───────────────────────────────────────────────┘
+[21:57:44] [DHT] Node running on port 7790                          peer.py:201
+
+✔ All pieces downloaded! Now seeding.
+           [Uploader] Listening on port 6790 (TLS Enabled)          peer.py:141
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+Downloading ---------------------------------------- 100.0% (3/3 pieces)
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 323, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 320, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 241, in run_downloader
+    time.sleep(30)
+KeyboardInterrupt
+┌───────────────────────────────────────────────┐
+│ mini-webtorrent  |  port 6677  |  mode SEEDER │
+└───────────────────────────────────────────────┘
+[22:00:09] [DHT] Node running on port 7677                          peer.py:201
+
+✔ All pieces downloaded! Now seeding.
+           [Uploader] Listening on port 6677 (TLS Enabled)          peer.py:141
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+
+✔ All pieces downloaded! Now seeding.
+Downloading ---------------------------------------- 100.0% (3/3 pieces)
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 323, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 320, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 241, in run_downloader
+    time.sleep(30)
+KeyboardInterrupt
+┌───────────────────────────────────────────────┐
+│ mini-webtorrent  |  port 6084  |  mode SEEDER │
+└───────────────────────────────────────────────┘
+[22:12:43] [DHT] Node running on port 7084                          peer.py:201
+
+✔ All pieces downloaded! Now seeding.
+           [Uploader] Listening on port 6084 (TLS Enabled)          peer.py:141
+[22:12:47] [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+[22:12:53] [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+[22:12:59] [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+[22:13:06] [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+[22:13:12] [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+
+✔ All pieces downloaded! Now seeding.
+[22:13:18] [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+[22:13:24] [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+[22:13:31] [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+[22:13:37] [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+[22:13:43] [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+
+✔ All pieces downloaded! Now seeding.
+[22:13:50] [Uploader] Served piece 1 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 0 to 127.0.0.1                   peer.py:117
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:117
+Downloading ---------------------------------------- 100.0% (3/3 pieces)
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 323, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 320, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 241, in run_downloader
+    time.sleep(30)
+KeyboardInterrupt
+┌───────────────────────────────────────────────┐
+│ mini-webtorrent  |  port 6203  |  mode SEEDER │
+└───────────────────────────────────────────────┘
+[22:17:22] [DHT] Node running on port 7203                          peer.py:212
+
+✔ All pieces downloaded! Now seeding.
+           [Uploader] Listening on port 6203 (TLS Enabled)          peer.py:145
+[22:17:29] [Uploader] Served piece 1 to 127.0.0.1                   peer.py:121
+           [Uploader] Served piece 2 to 127.0.0.1                   peer.py:121
+           [Uploader] Served piece 0 to 127.0.0.1                   peer.py:121
+Downloading ---------------------------------------- 100.0% (3/3 pieces)
+Traceback (most recent call last):
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 334, in <module>
+    main()
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 331, in main
+    run_downloader(metainfo, args.port, args.seeder)
+  File "C:\Users\Aditi Jain\computer-networks-lab-projects-E2-slot\mini-webtorrent\mini-webtorrent\peer.py", line 252, in run_downloader
+    time.sleep(30)
+KeyboardInterrupt

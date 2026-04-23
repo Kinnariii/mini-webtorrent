@@ -1,58 +1,266 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title>Mini Torrent App</title>
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-        .box {
-            margin-top: 50px;
-            padding: 20px;
-            background: white;
-            width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-        }
-        button {
-            padding: 10px 20px;
-            margin-top: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input {
-            margin-top: 10px;
-        }
-    </style>
+  <title>Mini Torrent App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f0f2f5; padding: 30px; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+    .grid { display: flex; gap: 20px; max-width: 1100px; margin: auto; flex-wrap: wrap; }
+    .card {
+      background: white; border-radius: 10px; padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex: 1; min-width: 240px;
+    }
+    .card h2 { font-size: 16px; color: #555; margin-bottom: 15px;
+               border-bottom: 2px solid #4CAF50; padding-bottom: 6px; }
+    input[type="file"], input[type="text"] {
+      width: 100%; padding: 8px; margin-bottom: 10px;
+      border: 1px solid #ddd; border-radius: 5px; font-size: 14px;
+    }
+    button {
+      width: 100%; padding: 10px; background: #4CAF50;
+      color: white; border: none; border-radius: 5px;
+      cursor: pointer; font-size: 14px;
+    }
+    button:hover { background: #45a049; }
+    #upload-result { margin-top: 12px; font-size: 13px; color: #333; }
+    #download-result { margin-top: 12px; font-size: 13px; color: #333; }
+    .stat-row { display: flex; justify-content: space-between;
+                padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    .stat-row:last-child { border-bottom: none; }
+    .badge {
+      background: #e8f5e9; color: #2e7d32; font-size: 12px;
+      padding: 2px 8px; border-radius: 10px; font-weight: bold;
+    }
+    #peers-list { font-size: 13px; color: #444; }
+    .peer-item { padding: 5px 0; border-bottom: 1px solid #f5f5f5; }
+    .empty { color: #aaa; font-style: italic; font-size: 13px; }
+    #refresh-time { text-align: right; font-size: 11px; color: #aaa; margin-top: 8px; }
+
+    /* Progress bar styles */
+    .progress-wrap { margin-top: 10px; }
+    .progress-label { font-size: 12px; color: #555; margin-bottom: 4px; }
+    .progress-bar-bg {
+      background: #e0e0e0; border-radius: 6px; height: 16px; overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%; background: #4CAF50; border-radius: 6px;
+      transition: width 0.4s ease;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: white; font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-```
-<div class="box">
-    <h1>Mini Torrent App</h1>
+<h1>🧲 Mini Torrent Dashboard</h1>
 
-    <h3>Upload File</h3>
-    <form>
-        <input type="file"><br>
-        <button type="submit">Upload</button>
-    </form>
+<div class="grid">
 
-    <h3>Download File</h3>
-    <input type="text" placeholder="Enter file name"><br>
-    <button>Download</button>
+  <!-- Upload Card -->
+  <div class="card">
+    <h2>📤 Share a File or Folder</h2>
+    <input type="file" id="file-input" multiple webkitdirectory>
+    <button onclick="uploadFile()">Upload & Generate Metainfo</button>
+    <div id="upload-result"></div>
+  </div>
 
-    <h3>Progress</h3>
-    <p id="progress">0%</p>
+  <!-- Download Card -->
+  <div class="card">
+    <h2>📥 Download a File</h2>
+    <input type="text" id="metainfo-path" placeholder="e.g. uploads/file.pdf.json">
+    <input type="text" id="dl-port" placeholder="Port (e.g. 6882)" value="6882">
+    <button onclick="startDownload()">Start Download</button>
+    <div id="download-result"></div>
+    <div id="progress-section"></div>
+  </div>
+
+  <!-- Tracker Stats Card -->
+  <div class="card">
+    <h2>📡 DHT Network Stats</h2>
+    <div id="tracker-stats"><p class="empty">Loading...</p></div>
+    <div id="refresh-time"></div>
+  </div>
+
+  <!-- Active Peers Card -->
+  <div class="card">
+    <h2>🖥️ Active Peers</h2>
+    <div id="peers-list"><p class="empty">No peers yet</p></div>
+  </div>
+
 </div>
-```
+
+<script>
+  // ── Upload a file and generate metainfo ──
+  async function uploadFile() {
+    const fileInput = document.getElementById('file-input');
+    const resultDiv = document.getElementById('upload-result');
+
+    if (!fileInput.files[0]) {
+      resultDiv.innerHTML = '<span style="color:red">Please select a file first.</span>';
+      return;
+    }
+
+    resultDiv.innerHTML = 'Uploading...';
+    const formData = new FormData();
+    for (let i = 0; i < fileInput.files.length; i++) {
+      const f = fileInput.files[i];
+      // Pass the relative path so the backend preserves folder structures!
+      const path = f.webkitRelativePath || f.name;
+      formData.append('file', f, path);
+    }
+
+    try {
+      const resp = await fetch('/upload', { method: 'POST', body: formData });
+      const data = await resp.json();
+
+      if (data.error) {
+        resultDiv.innerHTML = `<span style="color:red">Error: ${data.error}</span>`;
+      } else {
+        document.getElementById('metainfo-path').value = data.metainfo_path;
+        resultDiv.innerHTML = `
+          <div style="color:green">✔ ${data.message}</div>
+          <div class="stat-row"><span>Target</span><span>${data.file_name}</span></div>
+          <div class="stat-row"><span>Size</span><span>${Math.round(data.size / 1024)} KB</span></div>
+          <div class="stat-row"><span>Pieces</span><span>${data.pieces}</span></div>
+          <div class="stat-row"><span>Metainfo</span><span>${data.metainfo_path}</span></div>
+        `;
+      }
+    } catch (e) {
+      resultDiv.innerHTML = `<span style="color:red">Request failed: ${e}</span>`;
+    }
+  }
+
+  // ── Start a download via the web UI ──
+  async function startDownload() {
+    const metainfoPath = document.getElementById('metainfo-path').value.trim();
+    const port = document.getElementById('dl-port').value.trim();
+    const resultDiv = document.getElementById('download-result');
+    const progressSection = document.getElementById('progress-section');
+
+    if (!metainfoPath || !port) {
+      resultDiv.innerHTML = '<span style="color:red">Please fill in both fields.</span>';
+      return;
+    }
+
+    resultDiv.innerHTML = 'Starting download...';
+    progressSection.innerHTML = '';
+
+    try {
+      const resp = await fetch('/download', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ metainfo_path: metainfoPath, port: port })
+      });
+      const data = await resp.json();
+
+      if (data.error) {
+        resultDiv.innerHTML = `<span style="color:red">Error: ${data.error}</span>`;
+      } else {
+        resultDiv.innerHTML = `<span style="color:green">✔ ${data.message}</span>`;
+        // Start polling for progress
+        startProgressPolling(data.file_name, data.num_pieces);
+      }
+    } catch (e) {
+      resultDiv.innerHTML = `<span style="color:red">Request failed: ${e}</span>`;
+    }
+  }
+
+  // ── Poll /progress and show a progress bar ──
+  function startProgressPolling(fileName, numPieces) {
+    const section = document.getElementById('progress-section');
+    section.innerHTML = `
+      <div class="progress-wrap">
+        <div class="progress-label">📦 ${fileName} — <span id="prog-text">0 / ${numPieces} pieces</span></div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="prog-bar" style="width:0%">0%</div>
+        </div>
+      </div>`;
+
+    const interval = setInterval(async () => {
+      try {
+        const resp = await fetch(`/progress?file_name=${encodeURIComponent(fileName)}`);
+        const data = await resp.json();
+
+const pct = data[fileName]?.percent ?? 0;
+const done = data[fileName]?.pieces_done ?? 0;
+const total = data[fileName]?.total_pieces ?? 0;
+document.getElementById('prog-bar').style.width = pct + '%';
+document.getElementById('prog-bar').textContent = pct + '%';
+document.getElementById('prog-text').textContent = `${done} / ${total} pieces`;
+
+if (data[fileName]?.status === 'completed') {
+          clearInterval(interval);
+          document.getElementById('prog-bar').style.background = '#2e7d32';
+          document.getElementById('prog-text').textContent = '✔ Complete!';
+        }
+      } catch (e) {
+        // silently ignore polling errors
+      }
+    }, 2000);
+  }
+
+  // ── Fetch tracker stats and update both cards ──
+  async function refreshStats() {
+    try {
+      const resp = await fetch('/stats');
+      const data = await resp.json();
+
+      const statsDiv = document.getElementById('tracker-stats');
+      const peersDiv = document.getElementById('peers-list');
+
+      if (data.error) {
+        statsDiv.innerHTML = `<p class="empty">⚠️ ${data.error}</p>`;
+        peersDiv.innerHTML = `<p class="empty">Tracker offline</p>`;
+        return;
+      }
+
+      const files = Object.keys(data);
+      if (files.length === 0) {
+        statsDiv.innerHTML = `<p class="empty">No active torrents</p>`;
+        peersDiv.innerHTML = `<p class="empty">No peers yet</p>`;
+        return;
+      }
+
+      // Tracker stats
+      let statsHTML = '';
+      files.forEach(fname => {
+        const count = data[fname].active_peers;
+        const shortHash = fname.substring(0, 10) + '...';
+        statsHTML += `
+          <div class="stat-row">
+            <span title="${fname}">${shortHash}</span>
+            <span class="badge">${count} peer${count !== 1 ? 's' : ''}</span>
+          </div>`;
+      });
+      statsDiv.innerHTML = statsHTML;
+
+      // Peers list
+      let peersHTML = '';
+      files.forEach(fname => {
+        const shortHash = fname.substring(0, 10) + '...';
+        Object.entries(data[fname].peers).forEach(([addr, age]) => {
+          peersHTML += `
+            <div class="peer-item">
+              🖥️ <strong>${addr}</strong>
+              <span style="float:right;color:#888">${age}s ago — ${shortHash}</span>
+            </div>`;
+        });
+      });
+      peersDiv.innerHTML = peersHTML || `<p class="empty">No peers yet</p>`;
+
+      document.getElementById('refresh-time').textContent =
+        `Last updated: ${new Date().toLocaleTimeString()}`;
+
+    } catch (e) {
+      document.getElementById('tracker-stats').innerHTML =
+        `<p class="empty">Could not reach app server</p>`;
+    }
+  }
+
+  refreshStats();
+  setInterval(refreshStats, 5000);
+</script>
 
 </body>
 </html>

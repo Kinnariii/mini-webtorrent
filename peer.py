@@ -39,7 +39,6 @@ def handle_peer_request(client_socket, addr, file_path, piece_size, file_size):
         if message.startswith("GET_PIECE:"):
             piece_index = int(message.split(":")[1])
 
-            # ✅ FIX: compute the real size of this piece (last piece may be smaller)
             offset = piece_index * piece_size
             actual_piece_size = min(piece_size, file_size - offset)
 
@@ -171,7 +170,17 @@ def run_downloader(metainfo, my_port, is_seeder):
 
             if done == num_pieces:
                 console.print("\n[bold green]✔ All pieces downloaded! Now seeding.[/bold green]")
-                time.sleep(60)
+                # Keep announcing so other peers can find us
+                try:
+                    requests.get(
+                        tracker_url,
+                        params={"file_name": file_name, "port": my_port},
+                        timeout=5,
+                    )
+                    console.log("[cyan][Tracker][/cyan] Re-announced as seeder")
+                except Exception as e:
+                    console.log(f"[red][Tracker] Re-announce failed: {e}[/red]")
+                time.sleep(30)   # announce every 30s (well within the 90s TTL)
                 continue
 
             # ── Announce to tracker ──────────────
